@@ -15,6 +15,19 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     storage: window.localStorage,
     storageKey: 'flourish-talents-auth',
     flowType: 'pkce'
+  },
+  global: {
+    headers: {
+      'x-client-info': 'flourish-talents-web'
+    }
+  },
+  db: {
+    schema: 'public'
+  },
+  realtime: {
+    params: {
+      eventsPerSecond: 10
+    }
   }
 });
 
